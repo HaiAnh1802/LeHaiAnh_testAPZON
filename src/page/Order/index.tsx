@@ -8,6 +8,7 @@ import { IProductOrder } from "../../models/product.model";
 import { cloneDeep, sumBy } from "lodash";
 import { TabsProps } from "antd/lib";
 import AddProduct from "./component/addProduct";
+import ImportProductFileExcel from "./component/ImportProductFileExcel";
 
 const OrderCreate = () => {
   const [form] = Form.useForm();
@@ -67,13 +68,18 @@ const OrderCreate = () => {
           <div>
             <div className="flex items-center justify-between">
               <div className="font-medium text-lg">Chi tiết mặt hàng</div>
-              <div>
+              <div className="flex">
                 <Button
                   type="primary"
                   onClick={() => setIsShowAddProduct(true)}
                 >
                   Thêm mặt hàng
                 </Button>
+                <div className="ml-2">
+                  <ImportProductFileExcel
+                    setListProductImport={(list) => setListProduct(list)}
+                  />
+                </div>
               </div>
             </div>
           </div>
